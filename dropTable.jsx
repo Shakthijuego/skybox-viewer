@@ -59,6 +59,7 @@ export default class dropTable extends React.Component {
         let newState={}
         newState[tag]=file;
         this.setState(newState);
+        this.props.onTextureUpdate(this.state,tag);
     }
 
     render() {
@@ -70,7 +71,7 @@ export default class dropTable extends React.Component {
                     <tr><td><TextureDropZone text="+Y" onFileUpdate={this.onFileUpdate.bind(this)} tag="ypos"/></td></tr>
                     <tr><td><TextureDropZone text="-Y" onFileUpdate={this.onFileUpdate.bind(this)} tag="yneg"/></td></tr>
                     <tr><td><TextureDropZone text="+Z" onFileUpdate={this.onFileUpdate.bind(this)} tag="zpos"/></td></tr>
-                    <tr><td><TextureDropZone text="-Z" onFileUpdate={this.onFileUpdate.bind(this)} tag="zpos"/></td></tr>
+                    <tr><td><TextureDropZone text="-Z" onFileUpdate={this.onFileUpdate.bind(this)} tag="zneg"/></td></tr>
                 </tbody>
             </table>
         )

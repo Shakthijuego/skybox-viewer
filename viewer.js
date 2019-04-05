@@ -1,6 +1,6 @@
 import OrbitControls from 'orbit-controls-es6';
 import * as THREE  from 'three';
-var scene,camera,renderer,controls;
+var scene,camera,renderer,controls,materials;
 export function init() {
 
     var container = document.getElementById('world');
@@ -23,7 +23,7 @@ export function init() {
 
     var textures = getTexturesFromAtlasFile( "sun_temple_stripe.jpg", 6 );
 
-    var materials = [];
+     materials = [];
     for ( var i = 0; i < 6; i ++ ) {
         materials.push( new THREE.MeshBasicMaterial( { map: textures[ i ] } ) );
     }
@@ -32,6 +32,44 @@ export function init() {
     scene.add( skyBox );
     window.addEventListener( 'resize', onWindowResize, false );
 
+}
+
+
+export function updateTexture(state,tag){
+var texture = new THREE.Texture();
+
+var image = new Image();
+image.src = state[tag].preview;
+image.onload = function() { 
+    texture.image = image; 
+    texture.needsUpdate = true; 
+console.log(tag);
+    switch (tag) {
+        case "xpos":
+        materials[0].map = texture;
+            break;
+        case "xneg":
+        materials[1].map = texture;
+        break;
+        case "ypos":
+        materials[2].map = texture;
+            break;
+        case "yneg":
+        materials[3].map = texture;
+            break;
+
+        case "zpos":
+        materials[4].map = texture;
+            break;
+        case "zneg":
+        materials[5].map = texture;
+            break;
+        
+        default:
+            break;
+    }
+
+};
 }
 
 

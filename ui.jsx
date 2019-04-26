@@ -16,8 +16,8 @@ export default class App extends React.Component {
          <div id="world"/>
          <div style={{position:"absolute",left:"10px",top:"10px"}}>
          <Droptable onTextureUpdate={this.onTextureUpdate.bind(this)}/>
-         
          </div>
+         Drop files
          
         </div>
         

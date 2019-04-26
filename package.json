@@ -14,7 +14,8 @@
     "three": "^0.103.0"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack-cli -p"	  
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
